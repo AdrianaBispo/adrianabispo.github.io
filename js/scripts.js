@@ -1,18 +1,73 @@
-// @prepros-append vendor/jquery-3.3.1.min.js
-// @prepros-append vendor/popper.min.js
-// @prepros-append vendor/bootstrap.min.js
-// @prepros-append vendor/owl.carousel.min.js
-// @prepros-append vendor/aos.js
-// @prepros-append vendor/isotope.pkgd.min.js
-// @prepros-append vendor/jquery.animateNumber.min.js
-// @prepros-append vendor/jquery.waypoints.min.js
-// @prepros-append vendor/TweenMax.min.js
-// @prepros-append vendor/jquery.easing.1.3.js
-// @prepros-append vendor/jarallax.min.js
-// @prepros-append vendor/jarallax-video.min.js
-// @prepros-append vendor/jquery.validate.min.js
-// @prepros-append vendor/jquery.fancybox.min.js
-// @prepros-append vendor/stickyfill.min.js
-// @prepros-append vendor/imagesloaded.pkgd.min.js
-// @prepros-append vendor/ScrollMagic.min.js
-// @prepros-append vendor/scrollmagic.animation.gsap.min.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('mainNav');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('glass-nav');
+            navbar.classList.remove('py-4');
+        } else {
+            navbar.classList.remove('glass-nav');
+            navbar.classList.add('py-4');
+        }
+    });
+
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const navbarCollapse = document.getElementById('navbarNav');
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                    bsCollapse.hide();
+                }
+            }
+        });
+    });
+
+    // Intersection Observer for Scroll Animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Select elements to animate
+    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+    
+    animatedElements.forEach(el => {
+        // Pause animation initially
+        el.style.animationPlayState = 'paused';
+        observer.observe(el);
+    });
+});
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    loader.style.opacity = "0";
+    loader.style.pointerEvents = "none";
+
+    setTimeout(() => {
+      loader.remove();
+    }, 300);
+  });
