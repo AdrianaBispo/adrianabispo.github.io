@@ -67,6 +67,212 @@
   ]
 }
     </script>
+    <script type="application/json" id="design-system-ab-fusion">
+{
+  "meta": {
+    "name": "AB Fusion — Dev Portfolio System",
+    "version": "2026.1.0",
+    "locale": "pt-BR",
+    "intent": "Design system híbrido para portfólio de desenvolvedora: precisão técnica (terminal/editor) com presença comercial B2B, mantendo roxo como eixo cromático.",
+    "mergeOf": [
+      {
+        "id": "site-portfolio",
+        "artifact": "index.html + css/style.css",
+        "dna": [
+          "Superfície zinc escura (#18181b) com cards roxo-acinzentados",
+          "Tipografia em três camadas: Inter (corpo), Space Grotesk (títulos), JetBrains Mono (labels/código)",
+          "Glassmorphism leve, partículas de fundo, hierarquia de seções ampla (section-padding)",
+          "Primário #8b5cf6 com secundário índigo #6366f1"
+        ]
+      },
+      {
+        "id": "site-landing-b2b",
+        "artifact": "landing.html",
+        "dna": [
+          "Vazio profundo (#0c0c0f) e painéis (#141418) para contraste editorial",
+          "Cards com borda violeta semitransparente e glow em hover",
+          "CTAs em pílula, tipografia de impacto em uppercase nos títulos de seção",
+          "Roxo #8b5cf6 / #6d28d9 como par primário–pressed"
+        ]
+      }
+    ],
+    "innovationPillars": [
+      "Camadas de profundidade: void (landing) + zinc estrutural (portfólio) como sistema de elevação, não um único cinza",
+      "Assinatura dual: \"código legível\" (mono, badges) + \"produto confiável\" (cards com aura roxa)",
+      "Motion como feedback de engenharia: transições curtas, curvas estáveis, sem exageros decorativos",
+      "Acessibilidade: roxo só em acentos; texto principal em off-white com contraste AA nos fundos escuros definidos"
+    ]
+  },
+  "color": {
+    "brand": {
+      "purple": {
+        "50": "#faf5ff",
+        "100": "#f3e8ff",
+        "400": "#a78bfa",
+        "500": "#8b5cf6",
+        "600": "#7c3aed",
+        "700": "#6d28d9",
+        "800": "#5b21b6"
+      },
+      "indigoAccent": "#6366f1"
+    },
+    "semantic": {
+      "primary": "#8b5cf6",
+      "primaryForeground": "#f5f3ff",
+      "primaryPressed": "#6d28d9",
+      "secondary": "#6366f1",
+      "secondaryForeground": "#eef2ff",
+      "background": {
+        "canvas": "#0c0c0f",
+        "elevated": "#18181b",
+        "panel": "#141418",
+        "card": "#1f1f23"
+      },
+      "foreground": {
+        "default": "#fafafa",
+        "muted": "#a1a1aa",
+        "subtle": "#71717a"
+      },
+      "border": {
+        "hairline": "rgba(255,255,255,0.06)",
+        "default": "rgba(255,255,255,0.08)",
+        "accent": "rgba(139,92,246,0.45)",
+        "accentStrong": "rgba(139,92,246,0.65)"
+      },
+      "gradient": {
+        "heroAura": "linear-gradient(115deg, rgba(12,12,15,0.96) 0%, rgba(24,24,27,0.88) 42%, rgba(109,40,217,0.18) 100%)",
+        "purpleSpotlight": "radial-gradient(60% 50% at 80% 0%, rgba(139,92,246,0.35) 0%, transparent 55%)",
+        "codeStripes": "repeating-linear-gradient(90deg, rgba(139,92,246,0.06) 0 1px, transparent 1px 12px)"
+      }
+    }
+  },
+  "typography": {
+    "families": {
+      "sans": "\"Inter\", system-ui, sans-serif",
+      "heading": "\"Space Grotesk\", system-ui, sans-serif",
+      "mono": "\"JetBrains Mono\", ui-monospace, monospace"
+    },
+    "scale": {
+      "display": { "min": "2.25rem", "max": "4.5rem", "weight": 700, "lineHeight": 1.05, "tracking": "-0.03em" },
+      "h2": { "min": "1.75rem", "max": "2.75rem", "weight": 700, "lineHeight": 1.12, "tracking": "-0.02em" },
+      "lead": { "size": "1.125rem", "weight": 400, "lineHeight": 1.6 },
+      "body": { "size": "1rem", "weight": 400, "lineHeight": 1.65 },
+      "caption": { "size": "0.8125rem", "weight": 500, "lineHeight": 1.4 },
+      "monoLabel": { "size": "0.75rem", "weight": 500, "transform": "uppercase", "tracking": "0.14em" }
+    },
+    "pairingRules": [
+      "Títulos de impacto (hero / seções comerciais): Space Grotesk + uppercase opcional + tracking negativo leve",
+      "Corpo e UI densa: Inter",
+      "Chips, badges, roles, stack técnica: JetBrains Mono em caixa alta com espaçamento amplo"
+    ]
+  },
+  "space": {
+    "unit": 4,
+    "scale": [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96],
+    "sectionY": { "min": "5.5rem", "comfortable": "6rem" },
+    "containerMaxWidth": "1140px"
+  },
+  "radii": {
+    "sm": "10px",
+    "md": "14px",
+    "lg": "16px",
+    "xl": "24px",
+    "pill": "9999px"
+  },
+  "elevation": {
+    "glass": {
+      "background": "rgba(255,255,255,0.03)",
+      "backdropBlur": "10px",
+      "border": "rgba(255,255,255,0.05)",
+      "shadow": "0 4px 30px rgba(0,0,0,0.1)"
+    },
+    "productCard": {
+      "hoverBorder": "rgba(139,92,246,0.65)",
+      "hoverShadow": "0 0 0 1px rgba(139,92,246,0.2), 0 20px 50px rgba(0,0,0,0.35)"
+    }
+  },
+  "motion": {
+    "duration": { "fast": "150ms", "base": "220ms", "slow": "320ms" },
+    "easing": { "standard": "cubic-bezier(0.4, 0, 0.2, 1)", "emphasized": "cubic-bezier(0.2, 0.8, 0.2, 1)" },
+    "patterns": {
+      "hoverLift": { "translateY": "-4px", "shadow": "elevation.productCard.hoverShadow" },
+      "fadeInUp": { "translateY": "16px", "opacity": [0, 1] }
+    }
+  },
+  "components": {
+    "navbar": {
+      "variant": "glass-nav",
+      "behavior": "fixo no topo, blur moderado, borda inferior hairline"
+    },
+    "button": {
+      "primary": {
+        "shape": "pill",
+        "background": "semantic.primary",
+        "foreground": "#0b0b0f",
+        "fontWeight": 700,
+        "note": "CTA de alto contraste herdado do portfólio; hover aproxima-se de primaryPressed"
+      },
+      "outline": {
+        "shape": "pill",
+        "border": "semantic.border.default",
+        "foreground": "semantic.foreground.default"
+      },
+      "ghost": {
+        "shape": "pill",
+        "border": "2px solid semantic.foreground.default",
+        "uppercase": true,
+        "letterSpacing": "0.06em",
+        "source": "landing CTA outline"
+      }
+    },
+    "card": {
+      "portfolioGlass": {
+        "use": "grades de skills, timeline, conteúdo denso",
+        "inherits": "elevation.glass",
+        "hover": "borda com leve tint roxo elevation.productCard.hoverBorder"
+      },
+      "landingProduct": {
+        "use": "destaques de serviço / cases com leitura escaneável",
+        "background": "semantic.background.panel",
+        "border": "semantic.border.accent",
+        "hover": "elevation.productCard"
+      },
+      "fusionRule": "Mesma hierarquia tipográfica dentro do card; ícones em cápsula roxa translúcida (10–15% opacity)"
+    },
+    "badge": {
+      "style": "pill + mono + borda hairline + texto muted",
+      "border": "semantic.border.hairline"
+    },
+    "hero": {
+      "layout": "centrado, max-width de texto ~700px, selo superior em mono",
+      "accent": "gradient.purpleSpotlight sobre gradient.heroAura",
+      "scrollCue": "mouse/teclado minimalista com ponto primary"
+    }
+  },
+  "layoutPatterns": {
+    "grid": { "columns": 12, "gutter": "1.5rem" },
+    "sectionHeader": {
+      "title": "Space Grotesk bold",
+      "accentWord": "cor semantic.primary no último token do título",
+      "subtitle": "foreground.muted, max-width ~600px, centralizado quando seção for centralizada"
+    }
+  },
+  "contentVoice": {
+    "tone": "confiante, técnica acessível, sem jargão vazio",
+    "keywords": ["performance", "escala", "código limpo", "produto", "impacto"],
+    "bilingualNote": "UI strings em pt-BR; nomes de tokens e chaves do DS podem permanecer em inglês para tooling"
+  },
+  "implementation": {
+    "bootstrap": { "theme": "dark", "utilityFirst": true },
+    "cssVariablesBridge": [
+      "--primary → color.semantic.primary",
+      "--background → color.semantic.background.elevated (ou canvas em overlays)",
+      "--font-sans / --font-heading / --font-mono → typography.families"
+    ],
+    "consumption": "Parsear este JSON em build tools ou documentação; tokens espelham variáveis já usadas em style.css e landing.html"
+  }
+}
+    </script>
 </head>
 
 <body>
