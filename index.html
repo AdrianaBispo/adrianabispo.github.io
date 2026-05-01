@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="dark">
+<html lang="pt-BR" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -17,20 +17,18 @@
         content="Conheça projetos, experiência e formas de contato para desenvolvimento de sites, aplicativos e soluções digitais.">
     <meta property="og:url" content="https://adrianabispo.github.io/">
     <meta property="og:site_name" content="Adriana Bispo">
-    <meta property="og:image"
-        content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:image" content="https://adrianabispo.github.io/images/me.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Adriana Bispo | Desenvolvedora Full Stack e Mobile">
     <meta name="twitter:description"
         content="Portfólio com projetos, experiência e contato para desenvolvimento de soluções digitais robustas.">
-    <meta name="twitter:image"
-        content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80">
+    <meta name="twitter:image" content="https://adrianabispo.github.io/images/me.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Libre+Baskerville:ital,wght@0,400;1,400&family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap CSS -->
@@ -41,6 +39,508 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind (sem preflight + prefixo tw- para coexistir com Bootstrap) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            prefix: 'tw-',
+            corePlugins: { preflight: false },
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce'
+                        }
+                    },
+                    boxShadow: {
+                        'hero-img': '0 25px 50px -12px rgba(124, 58, 237, 0.18), 0 12px 24px -8px rgba(15, 23, 42, 0.08)'
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Design System: violeta original + ritmo editorial tipo Framer (onepageflip) -->
+    <script type="application/json" id="design-system-portfolio">
+{
+  "meta": {
+    "name": "Violet Editorial",
+    "version": "1.1.0",
+    "for": "Portfólio de desenvolvedora",
+    "mergedFrom": [
+      {
+        "ref": "references.json[0] + estética Framer (landing)",
+        "contribution": "Poppins em destaque, Libre Baskerville itálico em acento editorial, pill 56px, sombras em camadas, corpo Inter/Satoshi-like, superfície card #f9f5f1 traduzida para vidro com calor sutil no escuro"
+      },
+      {
+        "ref": "css/style.css (tom anterior)",
+        "contribution": "Primário #8b5cf6, canvas #18181b, secundário indigo #6366f1, gradientes e glow apenas em família violeta (sem pink de destaque)"
+      }
+    ]
+  },
+  "color": {
+    "canvas": {
+      "base": "#18181b",
+      "elevated": "#1f1f23",
+      "deep": "#12121a"
+    },
+    "brand": {
+      "violet": "#8b5cf6",
+      "violetDeep": "#7c3aed",
+      "violetLight": "#c4b5fd",
+      "indigo": "#6366f1",
+      "indigoLight": "#818cf8",
+      "lavender": "#e9d5ff"
+    },
+    "text": {
+      "primary": "#f4f4f5",
+      "body": "rgba(255,255,255,0.55)",
+      "muted": "rgba(255,255,255,0.4)"
+    },
+    "surface": {
+      "glass": "rgba(255,255,255,0.06)",
+      "creamHint": "rgba(249,245,241,0.06)",
+      "borderInput": "rgba(255,255,255,0.12)"
+    },
+    "gradient": {
+      "brand": "linear-gradient(165deg, #c4b5fd 0%, #8b5cf6 42%, #6d28d9 100%)",
+      "brandSubtle": "linear-gradient(135deg, rgba(196,181,253,0.14), rgba(139,92,246,0.1), rgba(99,102,241,0.08))",
+      "divider": "linear-gradient(to right, transparent, rgba(167,139,250,0.45), transparent)",
+      "textClip": "linear-gradient(92deg, #ddd6fe, #a78bfa, #8b5cf6)"
+    }
+  },
+  "typography": {
+    "families": {
+      "display": "Poppins",
+      "serifAccent": "Libre Baskerville",
+      "body": "Inter",
+      "mono": "JetBrains Mono",
+      "fallbackHeading": "Space Grotesk"
+    },
+    "weights": {
+      "body": 500,
+      "heading": 700,
+      "hero": 700
+    },
+    "scale": {
+      "hero": "clamp(2.25rem, 5.5vw, 4.25rem)",
+      "section": "clamp(1.65rem, 3.5vw, 2.65rem)",
+      "body": "clamp(1rem, 1.1vw, 1.125rem)",
+      "badge": "0.75rem"
+    },
+    "tracking": {
+      "display": "-0.04em",
+      "tight": "-0.02em"
+    },
+    "lineHeight": {
+      "heading": 1.15,
+      "body": 1.65
+    }
+  },
+  "spacing": {
+    "xs": "8px",
+    "sm": "16px",
+    "md": "32px",
+    "lg": "48px",
+    "xl": "64px",
+    "sectionPad": "clamp(4rem, 9vw, 6.5rem)",
+    "containerMaxWidth": "1170px",
+    "gridGap": "30px"
+  },
+  "radius": {
+    "pill": "56px",
+    "card": "22px",
+    "badge": "24px",
+    "control": "10px",
+    "icon": "20px"
+  },
+  "elevation": {
+    "card": "0 8px 33.6px -3px rgba(0,0,0,0.35), 0 1.83px 7.7px -2px rgba(0,0,0,0.2)",
+    "ctaGlow": "rgba(139,92,246,0.55) 0 0.36px 0.65px -1.25px, rgba(139,92,246,0.42) 0 1.37px 2.47px -2.5px, rgba(124,58,237,0.22) 0 6px 10.8px -3.75px"
+  },
+  "motion": {
+    "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+    "enterMs": 400,
+    "staggerMs": 100,
+    "hoverScale": 1.02,
+    "hoverLift": "translateY(-4px)"
+  },
+  "patterns": {
+    "hero": "Poppins no título + palavra em Libre Baskerville itálico + linha em gradiente violeta; CTA com gradiente vertical violeta e sombra multi-camada (análogo ao botão laranja Framer)",
+    "cards": "vidro com toque creme #f9f5f1 + borda lilás + hover em violeta",
+    "ambient": "aurora só em violeta/indigo suave"
+  }
+}
+    </script>
+    <style id="design-system-portfolio-theme">
+        /* Tokens aplicados por cima de css/style.css — apenas escopo desta página */
+        body.ds-portfolio-body {
+            --background: #fafaf9;
+            --foreground: #57534e;
+            --card: #ffffff;
+            --card-foreground: #292524;
+            --primary: #8b5cf6;
+            --primary-foreground: #faf5ff;
+            --secondary: #6366f1;
+            --secondary-foreground: #eef2ff;
+            --muted: #f5f5f4;
+            --muted-foreground: rgba(87, 83, 78, 0.68);
+            --ds-gradient-brand: linear-gradient(165deg, #c4b5fd 0%, #8b5cf6 42%, #6d28d9 100%);
+            --ds-gradient-subtle: linear-gradient(135deg, rgba(196, 181, 253, 0.35), rgba(139, 92, 246, 0.14), rgba(99, 102, 241, 0.1));
+            --ds-glow-cta: rgba(139, 92, 246, 0.35) 0 0.36px 0.65px -1.25px, rgba(139, 92, 246, 0.28) 0 1.37px 2.47px -2.5px, rgba(124, 58, 237, 0.15) 0 8px 18px -3.75px;
+            --ds-card-shadow: 0 4px 24px -4px rgba(120, 113, 108, 0.1), 0 1px 4px rgba(120, 113, 108, 0.06);
+            --font-sans: "Inter", system-ui, sans-serif;
+            --font-heading: "Poppins", "Space Grotesk", system-ui, sans-serif;
+            --font-serif-accent: "Libre Baskerville", Georgia, "Times New Roman", serif;
+            --font-mono: "JetBrains Mono", ui-monospace, monospace;
+            --ds-section-pad: clamp(4rem, 9vw, 6.5rem);
+            --ds-container-max: 1170px;
+            --ds-radius-card: 22px;
+            --ds-ease: cubic-bezier(0.22, 1, 0.36, 1);
+            background-color: var(--background);
+            color: var(--foreground);
+            letter-spacing: -0.01em;
+        }
+
+        body.ds-portfolio-body h1,
+        body.ds-portfolio-body h2,
+        body.ds-portfolio-body h3,
+        body.ds-portfolio-body h4 {
+            font-family: var(--font-heading);
+            letter-spacing: -0.035em;
+        }
+
+        body.ds-portfolio-body .container {
+            max-width: var(--ds-container-max);
+        }
+
+        body.ds-portfolio-body .section-padding {
+            padding-top: var(--ds-section-pad);
+            padding-bottom: var(--ds-section-pad);
+        }
+
+        body.ds-portfolio-body .ds-aurora {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 100% 72% at 50% -22%, rgba(139, 92, 246, 0.12), transparent 58%),
+                radial-gradient(ellipse 52% 44% at 100% 38%, rgba(99, 102, 241, 0.08), transparent 52%),
+                radial-gradient(ellipse 48% 40% at 0% 78%, rgba(167, 139, 250, 0.07), transparent 48%);
+        }
+
+        body.ds-portfolio-body .bg-particles {
+            background-image:
+                radial-gradient(circle at 18% 45%, rgba(139, 92, 246, 0.06) 0%, transparent 28%),
+                radial-gradient(circle at 88% 28%, rgba(99, 102, 241, 0.06) 0%, transparent 30%),
+                radial-gradient(circle at 50% 100%, rgba(196, 181, 253, 0.05) 0%, transparent 35%);
+        }
+
+        body.ds-portfolio-body .ds-section-tint {
+            background: linear-gradient(180deg, rgba(245, 243, 255, 0.65) 0%, rgba(250, 250, 249, 0.95) 100%);
+        }
+
+        body.ds-portfolio-body .hover-lift:hover {
+            box-shadow: 0 14px 40px rgba(124, 58, 237, 0.1);
+        }
+
+        body.ds-portfolio-body .navbar-light .navbar-toggler {
+            border-color: rgba(167, 139, 250, 0.35);
+        }
+
+        body.ds-portfolio-body .ds-text-gradient {
+            background: var(--ds-gradient-brand);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent !important;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.ds-portfolio-body .ds-hero-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(237, 233, 254, 0.85)) !important;
+            border: 1px solid rgba(167, 139, 250, 0.35) !important;
+            color: #6d28d9 !important;
+        }
+
+        body.ds-portfolio-body .ds-text-serif-accent {
+            font-family: var(--font-serif-accent);
+            font-style: italic;
+            font-weight: 400;
+            color: #5b21b6;
+            letter-spacing: -0.02em;
+        }
+
+        body.ds-portfolio-body .ds-serif-tagline {
+            font-family: var(--font-serif-accent);
+            font-style: italic;
+            font-weight: 400;
+            font-size: clamp(1rem, 1.05vw, 1.2rem);
+            letter-spacing: 0.01em;
+            color: #78716c;
+            line-height: 1.65;
+        }
+
+        body.ds-portfolio-body .ds-serif-label {
+            font-family: var(--font-serif-accent);
+            font-style: italic;
+            font-size: 0.9rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #7c3aed;
+        }
+
+        body.ds-portfolio-body .ds-card-title-serif {
+            font-family: var(--font-serif-accent);
+            font-weight: 400;
+            font-style: normal;
+            letter-spacing: -0.01em;
+            color: #44403c;
+        }
+
+        body.ds-portfolio-body .testimonial-card blockquote {
+            border: 0;
+            padding: 0;
+            margin: 0;
+        }
+
+        body.ds-portfolio-body .testimonial-card blockquote p {
+            color: rgba(68, 64, 60, 0.78);
+            line-height: 1.75;
+            margin-bottom: 0;
+        }
+
+        body.ds-portfolio-body .testimonial-card blockquote p + p {
+            margin-top: 1rem;
+        }
+
+        body.ds-portfolio-body .testimonial-meta {
+            color: #7c3aed;
+            font-size: 0.875rem;
+        }
+
+        body.ds-portfolio-body .testimonial-card .testimonial-quote-icon {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: rgba(139, 92, 246, 0.22);
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel {
+            position: relative;
+            mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-prev,
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-next {
+            width: 3rem;
+            height: 3rem;
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.18);
+            border: 1px solid rgba(167, 139, 250, 0.35);
+            opacity: 1;
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-prev:hover,
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-next:hover {
+            background: rgba(139, 92, 246, 0.32);
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-prev {
+            left: -0.25rem;
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-next {
+            right: -0.25rem;
+        }
+
+        @media (max-width: 767.98px) {
+
+            body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-prev,
+            body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-next {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+
+            body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-prev {
+                left: 0.25rem;
+            }
+
+            body.ds-portfolio-body .ds-testimonials-carousel .carousel-control-next {
+                right: 0.25rem;
+            }
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-indicators {
+            margin-bottom: 0;
+            bottom: -2.75rem;
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-indicators [type="button"] {
+            width: 0.55rem;
+            height: 0.55rem;
+            border-radius: 50%;
+            background-color: rgba(139, 92, 246, 0.28);
+            border: 0;
+            margin: 0 0.35rem;
+        }
+
+        body.ds-portfolio-body .ds-testimonials-carousel .carousel-indicators [type="button"].active {
+            background: var(--ds-gradient-brand);
+            width: 1.75rem;
+            border-radius: 999px;
+        }
+
+        body.ds-portfolio-body #home .ds-hero-title-line {
+            font-weight: 500;
+            color: #44403c;
+        }
+
+        body.ds-portfolio-body .ds-btn-primary {
+            background: var(--ds-gradient-brand) !important;
+            color: #fff !important;
+            border: 0 !important;
+            box-shadow: var(--ds-glow-cta);
+            transition: transform 0.35s var(--ds-ease), box-shadow 0.35s var(--ds-ease), filter 0.35s var(--ds-ease);
+        }
+
+        body.ds-portfolio-body .ds-btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            filter: brightness(1.05);
+            box-shadow: rgba(139, 92, 246, 0.65) 0 0.36px 0.65px -1.25px, rgba(139, 92, 246, 0.5) 0 1.37px 2.47px -2.5px, rgba(124, 58, 237, 0.35) 0 10px 22px -3.75px;
+        }
+
+        body.ds-portfolio-body .ds-btn-ghost {
+            border: 1px solid rgba(167, 139, 250, 0.45) !important;
+            background: rgba(255, 255, 255, 0.75) !important;
+            color: #44403c !important;
+            transition: border-color 0.3s var(--ds-ease), background 0.3s var(--ds-ease), transform 0.35s var(--ds-ease);
+        }
+
+        body.ds-portfolio-body .ds-btn-ghost:hover {
+            border-color: rgba(139, 92, 246, 0.55) !important;
+            background: rgba(245, 243, 255, 0.95) !important;
+        }
+
+        body.ds-portfolio-body #home .display-2 {
+            font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+            line-height: 1.12;
+        }
+
+        body.ds-portfolio-body .glass-card {
+            border-radius: var(--ds-radius-card) !important;
+            background: linear-gradient(165deg, rgba(255, 255, 255, 0.98), rgba(250, 245, 255, 0.88));
+            border: 1px solid rgba(167, 139, 250, 0.22);
+            box-shadow: var(--ds-card-shadow);
+            transition: transform 0.4s var(--ds-ease), box-shadow 0.4s var(--ds-ease), border-color 0.35s var(--ds-ease);
+        }
+
+        body.ds-portfolio-body .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.35);
+            box-shadow: var(--ds-card-shadow), 0 0 0 1px rgba(167, 139, 250, 0.1);
+        }
+
+        body.ds-portfolio-body .glass-nav {
+            background: rgba(255, 255, 255, 0.88) !important;
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(167, 139, 250, 0.18);
+            box-shadow: 0 8px 32px -16px rgba(139, 92, 246, 0.12);
+        }
+
+        body.ds-portfolio-body .navbar .nav-link {
+            transition: color 0.25s var(--ds-ease);
+            color: #57534e;
+        }
+
+        body.ds-portfolio-body .navbar .nav-link:hover {
+            color: #7c3aed !important;
+        }
+
+        body.ds-portfolio-body .botao-outline {
+            border-radius: 56px;
+            border: 1.5px solid transparent;
+            background: linear-gradient(var(--background), var(--background)) padding-box,
+                var(--ds-gradient-brand) border-box;
+            color: #6d28d9 !important;
+            transition: transform 0.35s var(--ds-ease), box-shadow 0.35s var(--ds-ease), color 0.25s ease;
+        }
+
+        body.ds-portfolio-body .botao-outline:hover {
+            color: #fff !important;
+            background: var(--ds-gradient-brand) !important;
+            box-shadow: var(--ds-glow-cta);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        body.ds-portfolio-body footer {
+            background: #f5f5f4;
+            border-top: 1px solid rgba(167, 139, 250, 0.15);
+        }
+
+        body.ds-portfolio-body footer .text-muted {
+            color: rgba(87, 83, 78, 0.72) !important;
+        }
+
+        body.ds-portfolio-body section h2.display-5 {
+            position: relative;
+            display: inline-block;
+        }
+
+        body.ds-portfolio-body section .text-center h2.display-5::after {
+            content: "";
+            display: block;
+            width: 4rem;
+            height: 3px;
+            margin: 0.75rem auto 0;
+            border-radius: 999px;
+            background: var(--ds-gradient-brand);
+            opacity: 0.9;
+        }
+
+        body.ds-portfolio-body section .fade-in-left h2.display-5::after,
+        body.ds-portfolio-body section .col-lg-6 h2.display-5::after {
+            margin: 0.75rem 0 0;
+        }
+
+        body.ds-portfolio-body .text-muted {
+            color: rgba(87, 83, 78, 0.62) !important;
+        }
+
+        body.ds-portfolio-body #loader {
+            background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.12), var(--background));
+        }
+
+        body.ds-portfolio-body .spinner {
+            border-color: rgba(167, 139, 250, 0.28);
+            border-top-color: #a78bfa;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body.ds-portfolio-body .ds-btn-primary,
+            body.ds-portfolio-body .glass-card,
+            body.ds-portfolio-body .botao-outline {
+                transition: none;
+            }
+
+            body.ds-portfolio-body .ds-btn-primary:hover,
+            body.ds-portfolio-body .botao-outline:hover {
+                transform: none;
+            }
+        }
+    </style>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -67,225 +567,21 @@
   ]
 }
     </script>
-    <script type="application/json" id="design-system-ab-fusion">
-{
-  "meta": {
-    "name": "AB Fusion — Dev Portfolio System",
-    "version": "2026.1.0",
-    "locale": "pt-BR",
-    "intent": "Design system híbrido para portfólio de desenvolvedora: precisão técnica (terminal/editor) com presença comercial B2B, mantendo roxo como eixo cromático.",
-    "mergeOf": [
-      {
-        "id": "site-portfolio",
-        "artifact": "index.html + css/style.css",
-        "dna": [
-          "Superfície zinc escura (#18181b) com cards roxo-acinzentados",
-          "Tipografia em três camadas: Inter (corpo), Space Grotesk (títulos), JetBrains Mono (labels/código)",
-          "Glassmorphism leve, partículas de fundo, hierarquia de seções ampla (section-padding)",
-          "Primário #8b5cf6 com secundário índigo #6366f1"
-        ]
-      },
-      {
-        "id": "site-landing-b2b",
-        "artifact": "landing.html",
-        "dna": [
-          "Vazio profundo (#0c0c0f) e painéis (#141418) para contraste editorial",
-          "Cards com borda violeta semitransparente e glow em hover",
-          "CTAs em pílula, tipografia de impacto em uppercase nos títulos de seção",
-          "Roxo #8b5cf6 / #6d28d9 como par primário–pressed"
-        ]
-      }
-    ],
-    "innovationPillars": [
-      "Camadas de profundidade: void (landing) + zinc estrutural (portfólio) como sistema de elevação, não um único cinza",
-      "Assinatura dual: \"código legível\" (mono, badges) + \"produto confiável\" (cards com aura roxa)",
-      "Motion como feedback de engenharia: transições curtas, curvas estáveis, sem exageros decorativos",
-      "Acessibilidade: roxo só em acentos; texto principal em off-white com contraste AA nos fundos escuros definidos"
-    ]
-  },
-  "color": {
-    "brand": {
-      "purple": {
-        "50": "#faf5ff",
-        "100": "#f3e8ff",
-        "400": "#a78bfa",
-        "500": "#8b5cf6",
-        "600": "#7c3aed",
-        "700": "#6d28d9",
-        "800": "#5b21b6"
-      },
-      "indigoAccent": "#6366f1"
-    },
-    "semantic": {
-      "primary": "#8b5cf6",
-      "primaryForeground": "#f5f3ff",
-      "primaryPressed": "#6d28d9",
-      "secondary": "#6366f1",
-      "secondaryForeground": "#eef2ff",
-      "background": {
-        "canvas": "#0c0c0f",
-        "elevated": "#18181b",
-        "panel": "#141418",
-        "card": "#1f1f23"
-      },
-      "foreground": {
-        "default": "#fafafa",
-        "muted": "#a1a1aa",
-        "subtle": "#71717a"
-      },
-      "border": {
-        "hairline": "rgba(255,255,255,0.06)",
-        "default": "rgba(255,255,255,0.08)",
-        "accent": "rgba(139,92,246,0.45)",
-        "accentStrong": "rgba(139,92,246,0.65)"
-      },
-      "gradient": {
-        "heroAura": "linear-gradient(115deg, rgba(12,12,15,0.96) 0%, rgba(24,24,27,0.88) 42%, rgba(109,40,217,0.18) 100%)",
-        "purpleSpotlight": "radial-gradient(60% 50% at 80% 0%, rgba(139,92,246,0.35) 0%, transparent 55%)",
-        "codeStripes": "repeating-linear-gradient(90deg, rgba(139,92,246,0.06) 0 1px, transparent 1px 12px)"
-      }
-    }
-  },
-  "typography": {
-    "families": {
-      "sans": "\"Inter\", system-ui, sans-serif",
-      "heading": "\"Space Grotesk\", system-ui, sans-serif",
-      "mono": "\"JetBrains Mono\", ui-monospace, monospace"
-    },
-    "scale": {
-      "display": { "min": "2.25rem", "max": "4.5rem", "weight": 700, "lineHeight": 1.05, "tracking": "-0.03em" },
-      "h2": { "min": "1.75rem", "max": "2.75rem", "weight": 700, "lineHeight": 1.12, "tracking": "-0.02em" },
-      "lead": { "size": "1.125rem", "weight": 400, "lineHeight": 1.6 },
-      "body": { "size": "1rem", "weight": 400, "lineHeight": 1.65 },
-      "caption": { "size": "0.8125rem", "weight": 500, "lineHeight": 1.4 },
-      "monoLabel": { "size": "0.75rem", "weight": 500, "transform": "uppercase", "tracking": "0.14em" }
-    },
-    "pairingRules": [
-      "Títulos de impacto (hero / seções comerciais): Space Grotesk + uppercase opcional + tracking negativo leve",
-      "Corpo e UI densa: Inter",
-      "Chips, badges, roles, stack técnica: JetBrains Mono em caixa alta com espaçamento amplo"
-    ]
-  },
-  "space": {
-    "unit": 4,
-    "scale": [0, 4, 8, 12, 16, 24, 32, 40, 48, 64, 80, 96],
-    "sectionY": { "min": "5.5rem", "comfortable": "6rem" },
-    "containerMaxWidth": "1140px"
-  },
-  "radii": {
-    "sm": "10px",
-    "md": "14px",
-    "lg": "16px",
-    "xl": "24px",
-    "pill": "9999px"
-  },
-  "elevation": {
-    "glass": {
-      "background": "rgba(255,255,255,0.03)",
-      "backdropBlur": "10px",
-      "border": "rgba(255,255,255,0.05)",
-      "shadow": "0 4px 30px rgba(0,0,0,0.1)"
-    },
-    "productCard": {
-      "hoverBorder": "rgba(139,92,246,0.65)",
-      "hoverShadow": "0 0 0 1px rgba(139,92,246,0.2), 0 20px 50px rgba(0,0,0,0.35)"
-    }
-  },
-  "motion": {
-    "duration": { "fast": "150ms", "base": "220ms", "slow": "320ms" },
-    "easing": { "standard": "cubic-bezier(0.4, 0, 0.2, 1)", "emphasized": "cubic-bezier(0.2, 0.8, 0.2, 1)" },
-    "patterns": {
-      "hoverLift": { "translateY": "-4px", "shadow": "elevation.productCard.hoverShadow" },
-      "fadeInUp": { "translateY": "16px", "opacity": [0, 1] }
-    }
-  },
-  "components": {
-    "navbar": {
-      "variant": "glass-nav",
-      "behavior": "fixo no topo, blur moderado, borda inferior hairline"
-    },
-    "button": {
-      "primary": {
-        "shape": "pill",
-        "background": "semantic.primary",
-        "foreground": "#0b0b0f",
-        "fontWeight": 700,
-        "note": "CTA de alto contraste herdado do portfólio; hover aproxima-se de primaryPressed"
-      },
-      "outline": {
-        "shape": "pill",
-        "border": "semantic.border.default",
-        "foreground": "semantic.foreground.default"
-      },
-      "ghost": {
-        "shape": "pill",
-        "border": "2px solid semantic.foreground.default",
-        "uppercase": true,
-        "letterSpacing": "0.06em",
-        "source": "landing CTA outline"
-      }
-    },
-    "card": {
-      "portfolioGlass": {
-        "use": "grades de skills, timeline, conteúdo denso",
-        "inherits": "elevation.glass",
-        "hover": "borda com leve tint roxo elevation.productCard.hoverBorder"
-      },
-      "landingProduct": {
-        "use": "destaques de serviço / cases com leitura escaneável",
-        "background": "semantic.background.panel",
-        "border": "semantic.border.accent",
-        "hover": "elevation.productCard"
-      },
-      "fusionRule": "Mesma hierarquia tipográfica dentro do card; ícones em cápsula roxa translúcida (10–15% opacity)"
-    },
-    "badge": {
-      "style": "pill + mono + borda hairline + texto muted",
-      "border": "semantic.border.hairline"
-    },
-    "hero": {
-      "layout": "centrado, max-width de texto ~700px, selo superior em mono",
-      "accent": "gradient.purpleSpotlight sobre gradient.heroAura",
-      "scrollCue": "mouse/teclado minimalista com ponto primary"
-    }
-  },
-  "layoutPatterns": {
-    "grid": { "columns": 12, "gutter": "1.5rem" },
-    "sectionHeader": {
-      "title": "Space Grotesk bold",
-      "accentWord": "cor semantic.primary no último token do título",
-      "subtitle": "foreground.muted, max-width ~600px, centralizado quando seção for centralizada"
-    }
-  },
-  "contentVoice": {
-    "tone": "confiante, técnica acessível, sem jargão vazio",
-    "keywords": ["performance", "escala", "código limpo", "produto", "impacto"],
-    "bilingualNote": "UI strings em pt-BR; nomes de tokens e chaves do DS podem permanecer em inglês para tooling"
-  },
-  "implementation": {
-    "bootstrap": { "theme": "dark", "utilityFirst": true },
-    "cssVariablesBridge": [
-      "--primary → color.semantic.primary",
-      "--background → color.semantic.background.elevated (ou canvas em overlays)",
-      "--font-sans / --font-heading / --font-mono → typography.families"
-    ],
-    "consumption": "Parsear este JSON em build tools ou documentação; tokens espelham variáveis já usadas em style.css e landing.html"
-  }
-}
-    </script>
 </head>
 
-<body>
+<body class="ds-portfolio-body">
     <div id="loader">
         <div class="spinner"></div>
     </div>
+    <div class="ds-aurora" aria-hidden="true"></div>
     <!-- Background Particles -->
     <div class="bg-particles"></div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark transition-all" id="mainNav">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light tw-bg-white/70 tw-backdrop-blur-md border-bottom tw-border-violet-100/80 transition-all py-4"
+        id="mainNav">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+            <a class="navbar-brand d-flex align-items-center gap-2 tw-text-stone-800" href="#">
                 <i class="bi bi-code-slash text-primary-custom fs-4"></i>
                 <span class="fw-bold font-heading tracking-tight">ADRIANA<span
                         class="text-primary-custom">BISPO</span></span>
@@ -299,6 +595,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about">Sobre</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experiência</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contato</a></li>
                     <li class="nav-item ms-lg-3">
                         <a href="#contact" class="
@@ -310,39 +607,49 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-vh-100 d-flex align-items-center position-relative overflow-hidden pt-5">
+    <section id="home"
+        class="min-vh-100 d-flex align-items-center position-relative overflow-hidden pt-5 tw-pt-24 lg:tw-pt-28">
         <div class="container position-relative z-1">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center fade-in-up">
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-6 text-center text-lg-start fade-in-up">
                     <span
-                        class="d-inline-block py-1 px-3 rounded-pill bg-secondary bg-opacity-10 text-primary-custom border border-secondary border-opacity-25 mb-4 font-mono small">
+                        class="ds-hero-badge d-inline-block py-2 px-4 rounded-pill mb-4 tw-shadow-sm">
                         DESENVOLVEDORA FULL STACK
                     </span>
 
-                    <h1 class="display-2 fw-bold mb-4 lh-sm">
-                        TRANSFORMANDO IDEIAS EM <br />
-                        <span class="text-primary-custom">SOLUÇÕES DIGITAIS</span>
+                    <h1 class="display-2 fw-bold mb-4 lh-sm ds-hero-title">
+                        <span class="ds-hero-title-line d-block">TRANSFORMANDO IDEIAS EM</span>
+                        <span class="ds-text-serif-accent">Soluções</span>
+                        <span class="ds-text-gradient"> digitais</span>
                     </h1>
 
-                    <p class="lead text-muted mb-5 mx-auto" style="max-width: 700px;">
-                        Especialista em criar experiências robustas, escaláveis e visualmente impactantes.
-                        Foco em performance, usabilidade e código limpo.
+                    <p class="lead mb-5 mx-auto mx-lg-0 tw-max-w-xl">
+                        <span class="d-block text-muted mb-2">Especialista em criar experiências robustas, escaláveis e visualmente impactantes.</span>
+                        <span class="ds-serif-tagline d-block">Foco em performance, usabilidade e código limpo.</span>
                     </p>
 
-                    <div class="d-flex justify-content-center gap-3">
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3 flex-wrap">
                         <a href="#projects"
-                            class="btn btn-primary bg-primary-custom text-dark border-0 fw-bold px-4 py-3 rounded-pill d-flex align-items-center gap-2 hover-scale">
+                            class="btn btn-primary ds-btn-primary fw-bold px-4 py-3 rounded-pill d-flex align-items-center gap-2 hover-scale">
                             Ver Projetos <i class="bi bi-arrow-right"></i>
                         </a>
-                        <a href="#contact" class="btn btn-outline-light px-4 py-3 rounded-pill fw-bold hover-scale">
+                        <a href="#contact" class="btn ds-btn-ghost px-4 py-3 rounded-pill fw-bold hover-scale">
                             Entrar em Contato
                         </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center fade-in-up delay-100">
+                    <div
+                        class="tw-relative tw-w-full tw-max-w-md tw-mx-auto tw-aspect-[4/5] tw-rounded-[2rem] tw-overflow-hidden tw-ring-2 tw-ring-violet-100 tw-shadow-hero-img">
+                        <img src="images/me.png" width="640" height="800"
+                            class="tw-absolute tw-inset-0 tw-h-full tw-w-full tw-object-cover tw-object-center"
+                            alt="Retrato de Adriana Bispo, desenvolvedora" fetchpriority="high" decoding="async">
                     </div>
                 </div>
             </div>
 
             <div class="position-absolute bottom-0 start-50 translate-middle-x mb-4 d-none d-md-block animate-bounce">
-                <div class="border border-secondary border-opacity-50 rounded-pill p-1"
+                <div class="border tw-border-violet-200 rounded-pill p-1"
                     style="width: 24px; height: 40px;">
                     <div class="bg-primary-custom rounded-circle mx-auto"
                         style="width: 4px; height: 4px; margin-top: 6px;"></div>
@@ -356,8 +663,9 @@
         <div class="container">
             <div class="row align-items-center gy-5">
                 <div class="col-lg-6 fade-in-left">
+                    <p class="ds-serif-label mb-2">Perfil profissional</p>
                     <h2 class="display-5 fw-bold mb-4">Sobre <span class="text-primary-custom">Mim</span></h2>
-                    <p class="lead text-light mb-4">
+                    <p class="lead mb-4 ds-serif-tagline tw-text-stone-600">
                         Desenvolvedora apaixonada por tecnologia e inovação, com sólida experiência em construção de
                         aplicações modernas.
                     </p>
@@ -389,7 +697,7 @@
                                     class="d-inline-flex align-items-center justify-content-center text-primary-custom p-3 mb-3 fs-4">
                                     <i class="bi bi-code-square"></i>
                                 </div>
-                                <h4 class="h5 fw-bold mb-2">Frontend</h4>
+                                <h4 class="h5 fw-bold mb-2 ds-card-title-serif">Frontend</h4>
                                 <p class="text-muted small mb-0">Html, Css e javaScript</p>
                             </div>
                         </div>
@@ -399,7 +707,7 @@
                                     class="d-inline-flex align-items-center justify-content-center text-primary-custom p-3 mb-3 fs-4">
                                     <i class="bi bi-hdd-rack"></i>
                                 </div>
-                                <h4 class="h5 fw-bold mb-2">Backend</h4>
+                                <h4 class="h5 fw-bold mb-2 ds-card-title-serif">Backend</h4>
                                 <p class="text-muted small mb-0">Firebase, Supabase</p>
                             </div>
                         </div>
@@ -409,7 +717,7 @@
                                     class="d-inline-flex align-items-center justify-content-center text-primary-custom p-3 mb-3 fs-4">
                                     <i class="bi bi-database"></i>
                                 </div>
-                                <h4 class="h5 fw-bold mb-2">Database</h4>
+                                <h4 class="h5 fw-bold mb-2 ds-card-title-serif">Database</h4>
                                 <p class="text-muted small mb-0">PostgreSQL, Oracle, SQLServer</p>
                             </div>
                         </div>
@@ -419,7 +727,7 @@
                                     class="d-inline-flex align-items-center justify-content-center text-primary-custom  p-3 mb-3 fs-4">
                                     <i class="bi bi-phone"></i>
                                 </div>
-                                <h4 class="h5 fw-bold mb-2">Mobile</h4>
+                                <h4 class="h5 fw-bold mb-2 ds-card-title-serif">Mobile</h4>
                                 <p class="text-muted small mb-0">Flutter</p>
                             </div>
                         </div>
@@ -430,23 +738,24 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section-padding bg-dark bg-opacity-50">
+    <section id="experience" class="section-padding ds-section-tint">
         <div class="container">
             <div class="text-center mb-5 fade-in-up">
+                <p class="ds-serif-label mb-2">Experiência</p>
                 <h2 class="display-5 fw-bold mb-3">Minha <span class="text-primary-custom">Jornada</span></h2>
-                <p class="text-muted mx-auto" style="max-width: 600px;">
+                <p class="ds-serif-tagline mx-auto mb-0" style="max-width: 600px;">
                     Uma trajetória focada em aprendizado contínuo e entrega de valor através da tecnologia.
                 </p>
             </div>
 
             <div class="position-relative mx-auto" style="max-width: 800px;">
                 <!-- Timeline Line -->
-                <div class="position-absolute top-0 bottom-0 start-0 ms-md-5 border-start border-secondary border-opacity-25"
+                <div class="position-absolute top-0 bottom-0 start-0 ms-md-5 border-start tw-border-violet-200"
                     style="left: 19px;"></div>
 
                 <!-- Experience Item 1 -->
                 <div class="position-relative mb-5 ps-5 ms-md-5 fade-in-left delay-200">
-                    <div class="position-absolute top-0 start-0 translate-middle-x bg-dark border border-primary-custom rounded-circle d-flex align-items-center justify-content-center"
+                    <div class="position-absolute top-0 start-0 translate-middle-x tw-bg-white border border-primary-custom rounded-circle d-flex align-items-center justify-content-center tw-shadow-sm"
                         style="width: 40px; height: 40px; left: -21px; z-index: 2;">
                         <i class="bi bi-briefcase text-primary-custom small"></i>
                     </div>
@@ -471,7 +780,7 @@
 
                 <!-- Experience Item 2 -->
                 <div class="position-relative mb-5 ps-5 ms-md-5 fade-in-left delay-300">
-                    <div class="position-absolute top-0 start-0 translate-middle-x bg-dark border border-primary-custom rounded-circle d-flex align-items-center justify-content-center"
+                    <div class="position-absolute top-0 start-0 translate-middle-x tw-bg-white border border-primary-custom rounded-circle d-flex align-items-center justify-content-center tw-shadow-sm"
                         style="width: 40px; height: 40px; left: -21px; z-index: 2;">
                         <i class="bi bi-briefcase text-primary-custom small"></i>
                     </div>
@@ -495,7 +804,7 @@
             
                 <!-- Experience Item 3 -->
                 <div class="position-relative mb-5 ps-5 ms-md-5 fade-in-left delay-100">
-                    <div class="position-absolute top-0 start-0 translate-middle-x bg-dark border border-primary-custom rounded-circle d-flex align-items-center justify-content-center"
+                    <div class="position-absolute top-0 start-0 translate-middle-x tw-bg-white border border-primary-custom rounded-circle d-flex align-items-center justify-content-center tw-shadow-sm"
                         style="width: 40px; height: 40px; left: -21px; z-index: 2;">
                         <i class="bi bi-briefcase text-primary-custom small"></i>
                     </div>
@@ -542,8 +851,9 @@
     <section id="projects" class="section-padding">
         <div class="container">
             <div class="text-center mb-5 fade-in-up">
+                <p class="ds-serif-label mb-2">Portfólio</p>
                 <h2 class="display-5 fw-bold mb-3">Projetos <span class="text-primary-custom">Recentes</span></h2>
-                <p class="text-muted mx-auto" style="max-width: 600px;">
+                <p class="ds-serif-tagline mx-auto mb-0" style="max-width: 600px;">
                     Uma seleção de trabalhos que demonstram minhas capacidades técnicas e resolução de problemas.
                 </p>
             </div>
@@ -562,9 +872,9 @@
                                 <i class="bi bi-folder fs-4"></i>
                             </div>
                             <!-- <div class="d-flex gap-3">
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="GitHub"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="GitHub"><i
                                         class="bi bi-github"></i></a>
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="Live Demo"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="Live Demo"><i
                                         class="bi bi-box-arrow-up-right"></i></a>
                             </div> -->
                         </div>
@@ -595,9 +905,9 @@
                                 <i class="bi bi-folder fs-4"></i>
                             </div>
                             <div class="d-flex gap-3">
-                                <!-- <a href="#" class="text-light hover-primary fs-5" aria-label="GitHub"><i
+                                <!-- <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="GitHub"><i
                                         class="bi bi-github"></i></a>
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="Live Demo"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="Live Demo"><i
                                         class="bi bi-box-arrow-up-right"></i></a> -->
                             </div>
                         </div>
@@ -632,9 +942,9 @@
                                 <i class="bi bi-folder fs-4"></i>
                             </div>
                             <!-- <div class="d-flex gap-3">
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="GitHub"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="GitHub"><i
                                         class="bi bi-github"></i></a>
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="Live Demo"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="Live Demo"><i
                                         class="bi bi-box-arrow-up-right"></i></a>
                             </div> -->
                         </div>
@@ -667,9 +977,9 @@
                                 <i class="bi bi-folder fs-4"></i>
                             </div>
                             <div class="d-flex gap-3">
-                                <!-- <a href="#" class="text-light hover-primary fs-5" aria-label="GitHub"><i
+                                <!-- <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="GitHub"><i
                                         class="bi bi-github"></i></a> -->
-                                <!-- <a href="#" class="text-light hover-primary fs-5" aria-label="Live Demo"><i
+                                <!-- <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="Live Demo"><i
                                         class="bi bi-box-arrow-up-right"></i></a>-->
                             </div>
                         </div>
@@ -707,9 +1017,9 @@
                                 <i class="bi bi-folder fs-4"></i>
                             </div>
                             <!-- <div class="d-flex gap-3">
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="GitHub"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="GitHub"><i
                                         class="bi bi-github"></i></a>
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="Live Demo"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="Live Demo"><i
                                         class="bi bi-box-arrow-up-right"></i></a>
                             </div> -->
                         </div>
@@ -746,9 +1056,9 @@
                                 <i class="bi bi-folder fs-4"></i>
                             </div>
                             <!-- <div class="d-flex gap-3">
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="GitHub"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="GitHub"><i
                                         class="bi bi-github"></i></a>
-                                <a href="#" class="text-light hover-primary fs-5" aria-label="Live Demo"><i
+                                <a href="#" class="tw-text-stone-500 hover-primary fs-5" aria-label="Live Demo"><i
                                         class="bi bi-box-arrow-up-right"></i></a>
                             </div> -->
                         </div>
@@ -782,15 +1092,138 @@
             </div>
     </section>
 
+    <!-- Depoimentos de clientes — duplique o <article class="testimonial-card"> para novos feedbacks -->
+    <section id="depoimentos" class="section-padding ds-section-tint position-relative" aria-labelledby="depoimentos-heading">
+        <div class="container">
+            <div class="text-center mb-5 fade-in-up">
+                <p class="ds-serif-label mb-2">Recomendações</p>
+                <h2 id="depoimentos-heading" class="display-5 fw-bold mb-3">Feedback de <span class="text-primary-custom">clientes</span></h2>
+                <p class="ds-serif-tagline mx-auto mb-0" style="max-width: 560px;">
+                    Depoimentos de quem já contratou ou colaborou comigo em projetos.
+                </p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12 col-xl-10 position-relative fade-in-left delay-100 px-2 px-md-3 pb-5">
+                    <div id="depoimentosCarousel" class="carousel slide ds-testimonials-carousel"
+                        data-bs-ride="false" role="region" aria-roledescription="carousel"
+                        aria-label="Depoimentos de clientes">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#depoimentosCarousel" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Depoimento de Natan Santos"></button>
+                            <button type="button" data-bs-target="#depoimentosCarousel" data-bs-slide-to="1"
+                                aria-label="Depoimento de Jaime Jr Abreu"></button>
+                            <button type="button" data-bs-target="#depoimentosCarousel" data-bs-slide-to="2"
+                                aria-label="Depoimento de Beatriz Sousa"></button>
+                        </div>
+                        <div class="carousel-inner px-1 px-sm-4 px-lg-5">
+                            <div class="carousel-item active">
+                                <div class="d-flex justify-content-center">
+                                    <article
+                                        class="glass-card p-4 p-lg-5 rounded-4 testimonial-card position-relative w-100 mx-auto"
+                                        style="max-width: 720px;">
+                                        <i class="bi bi-quote testimonial-quote-icon position-absolute top-0 end-0 mt-3 me-3"
+                                            aria-hidden="true"></i>
+                                        <header class="mb-4 pe-4">
+                                            <h3 class="h4 fw-bold tw-text-stone-800 mb-1">Natan Santos</h3>
+                                           
+                                        </header>
+                                        <blockquote>
+                                            <p>
+                                                Tive a oportunidade de trabalhar com Adriana e posso afirmar que ela é uma desenvolvedora mobile extremamente dedicada e talentosa. Possui forte domínio no desenvolvimento de aplicações móveis, sempre com atenção à performance, usabilidade e qualidade do código.
+                                            </p>
+                                            <p>
+                                                Adriana se destaca pela organização, capacidade de resolver problemas e preocupação constante com a experiência do usuário. Além disso, tem facilidade para trabalhar em equipe, comunicar ideias com clareza e colaborar ativamente em todas as etapas do projeto.
+                                            </p>
+                                            <p>
+                                                Recomendo a Adriana com total confiança para qualquer time que busque uma desenvolvedora mobile comprometida, proativa e focada em entregar soluções de alto nível.
+                                            </p>
+                                        </blockquote>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-center">
+                                    <article
+                                        class="glass-card p-4 p-lg-5 rounded-4 testimonial-card position-relative w-100 mx-auto"
+                                        style="max-width: 720px;">
+                                        <i class="bi bi-quote testimonial-quote-icon position-absolute top-0 end-0 mt-3 me-3"
+                                            aria-hidden="true"></i>
+                                        <header class="mb-4 pe-4">
+                                            <h3 class="h4 fw-bold tw-text-stone-800 mb-1">Jaime Jr Abreu</h3>
+                                            
+                                        </header>
+                                        <blockquote>
+                                            <p>
+                                                Tive o prazer de trabalhar com Adriana na Empresa Sudoeste, e logo percebi que ela era uma profissional de destaque. Com uma curva de aprendizado excepcional, dedicação, conhecimento técnico e muita proatividade, Adriana sempre gerou impactos positivos na equipe.
+                                            </p>
+                                            <p>
+                                                Ela entende as necessidades do projeto e traz soluções inovadoras e eficientes. Além disso, sua consideração e respeito pelos colegas fortalecem o ambiente colaborativo.
+                                            </p>
+                                            <p>
+                                                Recomendo Adriana sem hesitação, uma das melhores profissionais que tive o prazer de trabalhar em equipe.
+                                            </p>
+                                        </blockquote>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="d-flex justify-content-center">
+                                    <article
+                                        class="glass-card p-4 p-lg-5 rounded-4 testimonial-card position-relative w-100 mx-auto"
+                                        style="max-width: 720px;">
+                                        <i class="bi bi-quote testimonial-quote-icon position-absolute top-0 end-0 mt-3 me-3"
+                                            aria-hidden="true"></i>
+                                        <header class="mb-4 pe-4">
+                                            <h3 class="h4 fw-bold tw-text-stone-800 mb-1">Beatriz Sousa</h3>
+                                            
+                                        </header>
+                                        <blockquote>
+                                            <p>
+                                                É com muita satisfação que recomendo Adriana Bispo, uma excelente profissional com quem tive o privilégio de colaborar em projetos importantes para a prefeitura de Salvador.
+                                            </p>
+                                            <p>
+                                                Adriana tem uma habilidade incrível para desenvolver sistemas com alta qualidade, sempre mantendo suas tarefas organizadas e um olhar atento aos detalhes em cada fase do projeto.
+                                            </p>
+                                            <p>
+                                                O compromisso dela com a qualidade das entregas e com os prazos merece destaque. Ela garante que todos os requisitos sejam cumpridos e que as entregas estejam de acordo com os padrões combinados, o que traz uma grande segurança para a equipe e para o cliente.
+                                            </p>
+                                            <p>
+                                                Outro ponto é que a Adriana se faz sempre atenta aos detalhes durante os repasses, o que torna o trabalho colaborativo tranquilo e produtivo. Adriana é receptiva e sempre disposta a ajudar.
+                                            </p>
+                                            <p>
+                                                Tenho plena confiança de que Adriana será um grande ativo para qualquer equipe, trazendo sua responsabilidade e foco em qualidade para tudo o que faz.
+                                            </p>
+                                        </blockquote>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#depoimentosCarousel"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Depoimento anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#depoimentosCarousel"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Próximo depoimento</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section-padding position-relative overflow-hidden">
         <!-- Background decoration -->
 
         <div class="container position-relative z-1">
             <div class="text-center mb-5 fade-in-up">
+                <p class="ds-serif-label mb-2">Contato</p>
                 <h2 class="display-5 fw-bold mb-3">Vamos <span class="text-primary-custom">Conversar?</span></h2>
-                <p class="text-muted mx-auto" style="max-width: 600px;">
-                    Estou sempre aberto a novas oportunidades e desafios. Entre em contato para discutirmos seu próximo
+                <p class="ds-serif-tagline mx-auto mb-0" style="max-width: 600px;">
+                    Estou sempre aberta a novas oportunidades e desafios. Entre em contato para discutirmos seu próximo
                     projeto.
                 </p>
             </div>
@@ -865,22 +1298,22 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark py-5 border-top border-secondary border-opacity-10">
+    <footer class="py-5">
         <div class="container">
             <div class="row align-items-center gy-4">
                 <div class="col-md-6 text-center text-md-start">
-                    <h5 class="fw-bold text-white mb-2">ADRIANA<span class="text-primary-custom">BISPO</span></h5>
-                    <p class="text-muted mb-0 small">
+                    <h5 class="fw-bold tw-text-stone-800 mb-2">ADRIANA<span class="text-primary-custom">BISPO</span></h5>
+                    <p class="text-muted mb-0 small ds-serif-tagline" style="font-size: 0.95rem;">
                         Construindo soluções digitais de próxima geração.
                     </p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="d-flex justify-content-center justify-content-md-end gap-3 mb-3">
-                        <a href="https://github.com/AdrianaBispo" class="text-light hover-primary fs-5"><i
+                        <a href="https://github.com/AdrianaBispo" class="tw-text-stone-500 hover-primary fs-5"><i
                                 class="bi bi-github"></i></a>
-                        <a href="https://linkedin.com/in/adrianabispo283/" class="text-light hover-primary fs-5"><i
+                        <a href="https://linkedin.com/in/adrianabispo283/" class="tw-text-stone-500 hover-primary fs-5"><i
                                 class="bi bi-linkedin"></i></a>
-                        <a href="mailto:adriana.bispo283@gmail.com" class="text-light hover-primary fs-5"><i
+                        <a href="mailto:adriana.bispo283@gmail.com" class="tw-text-stone-500 hover-primary fs-5"><i
                                 class="bi bi-envelope"></i></a>
                     </div>
 
@@ -888,7 +1321,6 @@
             </div>
         </div>
     </footer>
-
 
 </body>
 
