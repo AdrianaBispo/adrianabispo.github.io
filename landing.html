@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(165deg, #faf8ff 0%, #f4f6ff 35%, #f7f9fb 70%, #ffffff 100%);
+            background-attachment: fixed;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-headline {
+            font-family: 'Hanken Grotesk', sans-serif;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#ddd6fe",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#191c1e",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#d4d0ff",
+                        "primary": "#1e1b4b",
+                        "inverse-surface": "#2d3133",
+                        "on-tertiary-container": "#5b21b6",
+                        "secondary": "#0d9488",
+                        "tertiary-fixed-dim": "#c4b5fd",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-primary": "#c4b5fd",
+                        "secondary-fixed": "#5eead4",
+                        "tertiary-container": "#ede9fe",
+                        "surface-container-high": "#e8e6ff",
+                        "outline": "#76777d",
+                        "on-error": "#ffffff",
+                        "on-background": "#14122a",
+                        "primary-container": "#ebe8ff",
+                        "surface-container-highest": "#e4e2f5",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#e8e6f2",
+                        "on-primary-fixed": "#1e1b4b",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#005236",
+                        "surface-variant": "#e8e6f2",
+                        "on-primary-fixed-variant": "#312e81",
+                        "surface-bright": "#faf8ff",
+                        "secondary-fixed-dim": "#2dd4bf",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface": "#faf8ff",
+                        "surface-container": "#f0eeff",
+                        "on-tertiary-fixed": "#1e1b4b",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "on-tertiary-fixed-variant": "#6d28d9",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#a5b4fc",
+                        "on-secondary-container": "#0f766e",
+                        "background": "#faf8ff",
+                        "tertiary": "#7c3aed",
+                        "secondary-container": "#99f6e4",
+                        "outline-variant": "#d4d0e8",
+                        "surface-tint": "#1e1b4b",
+                        "surface-container-low": "#f4f2ff",
+                        "on-primary-container": "#1e1b4b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "label-sm": ["IBM Plex Sans"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg": ["60px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/85 backdrop-blur-md border-b border-primary/10 shadow-sm shadow-primary/5">
+        <div
+            class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="font-headline text-2xl font-bold tracking-tight text-primary">
+                Adriana Bispo
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="text-sm font-bold text-primary border-b-2 border-tertiary pb-1" href="#">Solutions</a>
+                <a class="text-sm text-on-surface-variant hover:text-tertiary transition-colors"
+                    href="#">Architecture</a>
+                <a class="text-sm text-on-surface-variant hover:text-tertiary transition-colors"
+                    href="#">CTO-as-a-Service</a>
+                <a class="text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="#">Experience</a>
+                <a class="text-sm text-on-surface-variant hover:text-tertiary transition-colors" href="#">FAQ</a>
+            </div>
+            <button
+                class="bg-primary text-white font-bold py-2.5 px-6 rounded-full hover:brightness-110 active:scale-95 transition-all text-sm shadow-md">
+                Book Discovery Call
+            </button>
+        </div>
+    </nav>
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section
+            class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto py-24 grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+            <div class="md:col-span-7 space-y-8">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/50 border border-tertiary/30 rounded-full shadow-sm shadow-tertiary/10">
+                    <span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+                    <span class="text-[10px] font-bold text-tertiary tracking-wider uppercase">ESTABILIDADE
+                        GOVERNAMENTAL PARA SUA EMPRESA</span>
+                </div>
+                <h1 class="font-headline-xl text-headline-xl text-on-background leading-tight">
+                    Chega de sites lentos e tecnologia que quebra. Tenha a estabilidade de sistemas governamentais na
+                    sua empresa.
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                    Desenvolvimento com Arquitetura Limpa e Gestão de CTO: escalabilidade real para empresários que não
+                    podem parar.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button
+                        class="bg-primary text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/35 hover:scale-105 transition-all text-sm">
+                        Agendar Reunião Estratégica
+                    </button>
+                    <button
+                        class="border-2 border-primary text-primary font-bold py-4 px-8 rounded-full hover:bg-primary/10 transition-all text-sm">
+                        Ver Planos
+                    </button>
+                </div>
+            </div>
+            <div class="md:col-span-5 relative">
+                <div
+                    class="aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-primary/20 border border-primary/15 ring-2 ring-tertiary/25 ring-offset-4 ring-offset-background bg-white">
+                    <img alt="A high-quality, professional technology visual representing software architecture and clean code. Abstract representation of data flows, glowing lines, or a sleek server room with purple and violet lighting."
+                        class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTmFvxrnbmwZ34FvgdGy3xy81Amf1EXeC0SenlfKyh_5uE6IKsgeY0KRaG1q2vtczQG4o6MzD5RP8RbpOzhpa1h3DIUsTDI4Z5xiFYqbui6-12Tkdrt4rlK0a2xqSwm5RHx14_l6CGsmnrwCX8gnlxp4jZx3ISQ20EBZK4UxxCyHdQ4pxrx0T3X8zgwE8C6PEq4Muw3XSmOCgbVnf8JNVjp54qzEE2yb_uDYPPvetnnEam9K5iccBzLMcaueTv-ew4GoGERyjtgQa1" />
+                </div>
+                <div
+                    class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl border border-outline-variant max-w-[240px]">
+                    <div class="flex gap-1 mb-2">
+                        <span class="material-symbols-outlined text-tertiary fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-tertiary fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-tertiary fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-tertiary fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined text-tertiary fill-1"
+                            style="font-variation-settings: 'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-sm font-semibold text-on-surface">"Arquitetura impecável. Escalabilidade que nunca
+                        tínhamos visto antes."</p>
+                </div>
+            </div>
+        </section>
+        <!-- Bento Grid: The Invisible Sale (Technical Differential) -->
+        <section class="bg-surface-container-low py-section-gap">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div class="text-center mb-16 space-y-4">
+                    <h2 class="font-headline-xl text-headline-xl text-primary">Por que nosso código economiza seu
+                        dinheiro?</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mx-auto">Traduzimos o rigor
+                        técnico para a rentabilidade financeira do seu negócio.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+                    <!-- Clean Architecture Card -->
+                    <div
+                        class="md:col-span-8 bg-white border border-outline-variant p-10 rounded-2xl flex flex-col justify-between group hover:border-tertiary/50 hover:shadow-xl transition-all duration-300">
+                        <div>
+                            <span
+                                class="material-symbols-outlined text-tertiary text-[48px] mb-6 block">architecture</span>
+                            <h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">Clean Architecture =
+                                Menos Manutenção</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+                                Desenvolvemos sistemas onde cada componente é independente. Se precisar trocar o banco
+                                de dados ou integrar uma nova API daqui a 2 anos, você não precisa refazer o site
+                                inteiro. É economia real de longo prazo.
+                            </p>
+                        </div>
+                        <div
+                            class="mt-8 flex items-center gap-4 text-primary font-bold text-xs tracking-widest uppercase">
+                            <span class="material-symbols-outlined text-sm">payments</span>
+                            ROI TÉCNICO COMPROVADO
+                        </div>
+                    </div>
+                    <!-- Zero Quedas Card -->
+                    <div
+                        class="md:col-span-4 bg-primary text-white p-10 rounded-2xl flex flex-col justify-between shadow-lg shadow-primary/35">
+                        <span class="material-symbols-outlined text-white/80 text-[48px] mb-6 block">speed</span>
+                        <div>
+                            <h3 class="font-headline-lg text-headline-lg mb-4 text-white">Zero Quedas</h3>
+                            <p class="font-body-md text-body-md opacity-90">Monitoramento preditivo que resolve gargalos
+                                antes que eles afetem seu faturamento.</p>
+                        </div>
+                    </div>
+                    <!-- Refazendo do Zero Card -->
+                    <div
+                        class="md:col-span-4 bg-white border border-outline-variant p-10 rounded-2xl hover:shadow-lg transition-all">
+                        <span class="material-symbols-outlined text-tertiary text-[48px] mb-6 block">autorenew</span>
+                        <h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">Crescimento Sem Reset</h3>
+                        <p class="font-body-md text-body-md text-on-surface-variant">Software que cresce com você sem
+                            precisar ser refeito do zero a cada nova fase da empresa.</p>
+                    </div>
+                    <!-- Government Standard Card -->
+                    <div
+                        class="md:col-span-8 bg-white border border-outline-variant p-10 rounded-2xl flex items-center gap-10 overflow-hidden relative hover:shadow-lg transition-all">
+                        <div class="flex-1">
+                            <h3 class="font-headline-lg text-headline-lg text-on-surface mb-4">Padrão de Segurança
+                                Institucional</h3>
+                            <p class="font-body-md text-body-md text-on-surface-variant">Criptografia e protocolos de
+                                segurança que protegem dados sensíveis de milhares de usuários simultâneos.</p>
+                        </div>
+                        <div class="hidden lg:block w-1/3">
+                            <img alt="Server room infrastructure"
+                                class="rounded-lg object-cover h-40 w-full opacity-60 grayscale hover:grayscale-0 transition-all"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuS_xGalvhQht9xX1DWPqw-c5JcmEUyYJOTBQYvy_7X4aQDsOen34KdJkreRIsj_63oUH2dcSvobJHBtoekNnkYLASqUkeFca7GjxsaO_7d3LBy4e5reihpHvpyzv7RWtAYQZY_q_cbWVWbDPH64OpePWo4chK5BrARZhd_FyAOgpT2RGdZ-MthgHfsB4omqswVCHjUiDuStwkumEljefFF0k2W7ckyKbS1wU6yZ5efIMXrf6DIhhi7IbZQ7WIq6Vqs2dZBMQO5p1X" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Service Section: WaaS Model -->
+        <section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8">
+                    <h2 class="font-headline-xl text-headline-xl text-primary">Seu CTO Particular.</h2>
+                    <p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Não é apenas um site, é continuidade de negócio. Planos mensais que garantem segurança,
+                        atualizações e suporte especializado direto com quem entende da arquitetura.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary mt-1">check_circle</span>
+                            <div>
+                                <strong class="text-sm font-bold text-on-surface block uppercase tracking-wider">Gestão
+                                    Estratégica</strong>
+                                <span class="font-body-md text-on-surface-variant">Aconselhamento técnico para suas
+                                    decisões de negócio.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary mt-1">check_circle</span>
+                            <div>
+                                <strong
+                                    class="text-sm font-bold text-on-surface block uppercase tracking-wider">Segurança
+                                    Inabalável</strong>
+                                <span class="font-body-md text-on-surface-variant">Atualizações de segurança proativas e
+                                    patches constantes.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary mt-1">check_circle</span>
+                            <div>
+                                <strong class="text-sm font-bold text-on-surface block uppercase tracking-wider">Suporte
+                                    Nível Especialista</strong>
+                                <span class="font-body-md text-on-surface-variant">Nada de tickets infinitos. Contato
+                                    direto para soluções ágeis.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid grid-cols-1 gap-gutter">
+                    <!-- Recommended Pricing Card -->
+                    <div class="bg-white p-12 rounded-3xl shadow-2xl relative border border-outline-variant">
+                        <div
+                            class="absolute top-0 right-10 -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest">
+                            Mais Procurado
+                        </div>
+                        <h4 class="text-xs font-bold text-primary mb-2 uppercase tracking-widest">Plano Executive CTO
+                        </h4>
+                        <div class="flex items-baseline gap-2 mb-8">
+                            <span class="text-4xl font-bold text-on-surface">Sob Consulta</span>
+                        </div>
+                        <div class="space-y-4 mb-10">
+                            <div class="flex items-center gap-3 py-3 border-b border-outline-variant/30">
+                                <span class="material-symbols-outlined text-tertiary">check</span>
+                                <span class="font-body-md text-on-surface-variant">Desenvolvimento em Clean
+                                    Architecture</span>
+                            </div>
+                            <div class="flex items-center gap-3 py-3 border-b border-outline-variant/30">
+                                <span class="material-symbols-outlined text-tertiary">check</span>
+                                <span class="font-body-md text-on-surface-variant">Monitoramento 24/7 &amp; Backup
+                                    Diário</span>
+                            </div>
+                            <div class="flex items-center gap-3 py-3 border-b border-outline-variant/30">
+                                <span class="material-symbols-outlined text-tertiary">check</span>
+                                <span class="font-body-md text-on-surface-variant">Consultoria Técnica Mensal</span>
+                            </div>
+                            <div class="flex items-center gap-3 py-3">
+                                <span class="material-symbols-outlined text-tertiary">check</span>
+                                <span class="font-body-md text-on-surface-variant">SLA de Resposta Prioritária</span>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full bg-primary text-white py-4 rounded-full font-bold hover:brightness-110 shadow-lg shadow-primary/35 transition-all">
+                            Agendar Reunião Estratégica
+                        </button>
+                        <p class="text-center mt-4 text-[10px] font-bold text-outline uppercase tracking-widest">SLA
+                            GUARANTEE INCLUDED</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Authority Section -->
+        <section class="bg-surface-container-low py-section-gap overflow-hidden">
+            <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end gap-10 mb-16">
+                    <div class="max-w-2xl">
+                        <span class="text-xs font-bold text-primary uppercase tracking-widest block mb-4">Legado
+                            Técnico</span>
+                        <h2 class="font-headline-xl text-headline-xl text-on-background leading-tight">Experiência em
+                            Projetos de Alto Impacto.</h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant mt-4">"Se cuidamos de dados
+                            governamentais, sua empresa está em boas mãos."</p>
+                    </div>
+                    <div class="hidden md:flex gap-4">
+                        <div
+                            class="bg-white px-6 py-4 rounded-xl border border-outline-variant flex items-center gap-3 shadow-sm">
+                            <span class="text-3xl text-primary font-bold">10+</span>
+                            <span
+                                class="text-xs font-bold text-on-surface-variant uppercase tracking-tight leading-tight">Anos
+                                de<br />Experiência</span>
+                        </div>
+                        <div
+                            class="bg-white px-6 py-4 rounded-xl border border-outline-variant flex items-center gap-3 shadow-sm">
+                            <span class="text-3xl text-primary font-bold">50+</span>
+                            <span
+                                class="text-xs font-bold text-on-surface-variant uppercase tracking-tight leading-tight">Sistemas<br />Entregues</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- SEFAZ -->
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-outline-variant hover:border-tertiary transition-all group shadow-sm hover:shadow-md">
+                        <div
+                            class="bg-primary-container/30 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                            <span
+                                class="material-symbols-outlined text-tertiary group-hover:text-white text-[32px]">account_balance</span>
+                        </div>
+                        <h4 class="font-headline text-[24px] font-bold text-on-surface mb-4">SEFAZ</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Gestão crítica de servidores
+                            públicos e processamento de dados governamentais em alta escala.</p>
+                        <span
+                            class="text-[10px] font-bold text-tertiary bg-primary-container px-3 py-1 rounded uppercase tracking-widest">ESTABILIDADE
+                            MÁXIMA</span>
+                    </div>
+                    <!-- SECIS -->
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-outline-variant hover:border-tertiary transition-all group shadow-sm hover:shadow-md">
+                        <div
+                            class="bg-primary-container/30 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                            <span
+                                class="material-symbols-outlined text-tertiary group-hover:text-white text-[32px]">strategy</span>
+                        </div>
+                        <h4 class="font-headline text-[24px] font-bold text-on-surface mb-4">SECIS</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Desenvolvimento do Plano
+                            Estratégico com foco em escalabilidade de dados e transparência pública.</p>
+                        <span
+                            class="text-[10px] font-bold text-tertiary bg-primary-container px-3 py-1 rounded uppercase tracking-widest">VISÃO
+                            ESTRATÉGICA</span>
+                    </div>
+                    <!-- Mama Thula -->
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-outline-variant hover:border-tertiary transition-all group shadow-sm hover:shadow-md">
+                        <div
+                            class="bg-primary-container/30 w-16 h-16 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                            <span
+                                class="material-symbols-outlined text-tertiary group-hover:text-white text-[32px]">public</span>
+                        </div>
+                        <h4 class="font-headline text-[24px] font-bold text-on-surface mb-4">Mama Thula</h4>
+                        <p class="font-body-md text-body-md text-on-surface-variant mb-4">Implementação de ecossistema
+                            digital robusto para suporte internacional e alcance global.</p>
+                        <span
+                            class="text-[10px] font-bold text-tertiary bg-primary-container px-3 py-1 rounded uppercase tracking-widest">ALCANCE
+                            GLOBAL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FAQ Section -->
+        <section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-[800px] mx-auto">
+            <h2 class="font-headline-xl text-headline-xl text-primary text-center mb-12">Perguntas Frequentes</h2>
+            <div class="space-y-4">
+                <div class="bg-white border border-outline-variant rounded-xl overflow-hidden px-6 py-6 shadow-sm">
+                    <button class="w-full flex justify-between items-center text-left group">
+                        <span
+                            class="font-headline text-[20px] font-bold text-on-surface group-hover:text-tertiary transition-colors">Por
+                            que pagar mensalmente em vez de um valor único?</span>
+                        <span class="material-symbols-outlined text-outline">expand_more</span>
+                    </button>
+                    <div class="mt-4 font-body-md text-on-surface-variant leading-relaxed">
+                        Software não é um produto estático, é um organismo vivo. A mensalidade garante monitoramento
+                        contínuo, patches de segurança semanais e atualizações de infraestrutura que mantêm seu site
+                        rápido e seguro 24/7. É a diferença entre ter um carro parado na garagem e uma frota sempre
+                        pronta para rodar.
+                    </div>
+                </div>
+                <div class="bg-white border border-outline-variant rounded-xl overflow-hidden px-6 py-6 shadow-sm">
+                    <button class="w-full flex justify-between items-center text-left group">
+                        <span
+                            class="font-headline text-[20px] font-bold text-on-surface group-hover:text-tertiary transition-colors">E
+                            se eu quiser mudar alguma coisa no site?</span>
+                        <span class="material-symbols-outlined text-outline">expand_more</span>
+                    </button>
+                    <div class="mt-4 font-body-md text-on-surface-variant leading-relaxed">
+                        Alterações e evoluções estão inclusas no modelo WaaS. Nosso suporte especializado responde de
+                        forma ágil, implementando melhorias sem custos surpresas de "ajustes". O foco é na continuidade
+                        e evolução do seu negócio.
+                    </div>
+                </div>
+                <div class="bg-white border border-outline-variant rounded-xl overflow-hidden px-6 py-6 shadow-sm">
+                    <button class="w-full flex justify-between items-center text-left group">
+                        <span
+                            class="font-headline text-[20px] font-bold text-on-surface group-hover:text-tertiary transition-colors">Qual
+                            é a diferença real entre Clean Architecture e um site comum?</span>
+                        <span class="material-symbols-outlined text-outline">expand_more</span>
+                    </button>
+                    <div class="mt-4 font-body-md text-on-surface-variant leading-relaxed">
+                        Sites comuns costumam ser "macarrônicos"—tudo está emaranhado. Se uma parte quebra, tudo cai.
+                        Clean Architecture separa as regras de negócio da tecnologia. Isso significa que seu negócio
+                        fica blindado, fácil de testar e muito mais rápido de escalar sem gerar "dívida técnica".
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Final CTA Section -->
+        <section class="bg-primary-container py-24 px-margin-mobile md:px-margin-desktop text-center">
+            <div class="max-w-4xl mx-auto space-y-10">
+                <h2 class="font-headline-xl text-headline-xl text-on-primary-container">Sua empresa merece tecnologia de
+                    elite.</h2>
+                <p class="font-body-lg text-body-lg text-on-primary-container/80">Não arrisque sua operação com soluções
+                    frágeis. Fale com um CTO e tenha segurança de verdade.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6">
+                    <button
+                        class="bg-primary text-white font-bold py-5 px-10 rounded-full shadow-lg shadow-primary/35 hover:scale-105 transition-all text-sm">
+                        Agendar Reunião Estratégica
+                    </button>
+                    <button
+                        class="border-2 border-primary text-primary font-bold py-5 px-10 rounded-full hover:bg-primary/10 transition-colors text-sm">
+                        Ver Portfólio Técnico
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white w-full py-section-gap border-t border-outline-variant">
+        <div
+            class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-on-surface">
+            <div class="md:col-span-1">
+                <div class="font-headline text-2xl font-bold text-primary mb-6">Adriana Bispo</div>
+                <p class="font-body-md text-on-surface-variant">Technical Excellence in Clean Architecture &amp;
+                    Enterprise Scalability.</p>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-xs font-bold uppercase tracking-widest text-primary">Serviços</h5>
+                <ul class="space-y-2">
+                    <li><a class="font-body-md text-on-surface-variant hover:text-tertiary transition-all"
+                            href="#">Website as a Service</a></li>
+                    <li><a class="font-body-md text-on-surface-variant hover:text-tertiary transition-all" href="#">CTO
+                            as a Service</a></li>
+                    <li><a class="font-body-md text-on-surface-variant hover:text-tertiary transition-all"
+                            href="#">Cloud Infrastructure</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-xs font-bold uppercase tracking-widest text-primary">Compliance</h5>
+                <ul class="space-y-2">
+                    <li><a class="font-body-md text-on-surface-variant hover:text-tertiary transition-all"
+                            href="#">Privacy Policy</a></li>
+                    <li><a class="font-body-md text-on-surface-variant hover:text-tertiary transition-all"
+                            href="#">Terms of Service</a></li>
+                    <li><a class="font-body-md text-on-surface-variant hover:text-tertiary transition-all"
+                            href="#">Service Level Agreement</a></li>
+                </ul>
+            </div>
+            <div class="space-y-4">
+                <h5 class="text-xs font-bold uppercase tracking-widest text-primary">Contato</h5>
+                <p class="font-body-md text-on-surface-variant">contato@adrianabispo.com</p>
+                <div class="flex gap-4">
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#"><span
+                            class="material-symbols-outlined text-[20px]">link</span></a>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#"><span
+                            class="material-symbols-outlined text-[20px]">alternate_email</span></a>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-20 pt-8 border-t border-outline-variant text-center text-[10px] font-bold uppercase tracking-widest opacity-40">
+            © 2024 Adriana Bispo. Technical Excellence in Clean Architecture &amp; Enterprise Scalability.
+        </div>
+    </footer>
+</body>
+
+</html>
